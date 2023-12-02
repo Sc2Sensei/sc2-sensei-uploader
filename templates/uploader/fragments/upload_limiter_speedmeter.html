@@ -1,0 +1,39 @@
+{# Args: uploaded_replays_this_month => int #}
+
+	<div class="speedometer" id="upload_limiter_speedmeter">
+		<div class="bars h-fit transition-all duration-500" style="--fill-percent: 0;">
+			{% include 'svgs/upload_limiter.svg' %}
+			
+			
+		</div>
+		<div class="knob h-fit transition-all duration-500" style="--rotate-degree: 190;">
+			{% include 'svgs/knob.svg' %}
+
+			
+		</div>
+	</div>
+	
+	<script>
+
+		function updateUploadLimitMeter(rotateDegree) {
+			if(rotateDegree < 0 || rotateDegree > 180){
+				console.error('invalid rotation for knob')
+			}
+			const bars = document.querySelectorAll('.bar');  // Assuming you have class="bar" for each bar in the SVG
+			const knob = document.querySelector('.knob');
+			const numberOfBars = bars.length;
+			const degreePerBar = 180 / numberOfBars;
+			const activeBarIndex = Math.floor(rotateDegree / degreePerBar);
+			
+			knob.style.setProperty('--rotate-degree', 190+rotateDegree);
+
+			for (let i = 0; i < numberOfBars; i++) {
+				let opacity = i <= activeBarIndex ? 1 : 0.2;
+				bars[i].style.setProperty('--bar-opacity', opacity);
+			}
+		}
+
+		upload_progress = {{ uploaded_replays_this_month / limit }}
+		setTimeout(()=> updateUploadLimitMeter( upload_progress * 180 ), 10)
+		
+	</script>

@@ -1,0 +1,41 @@
+[x-cloak] { display: none !important; }
+
+*.htmx-swapping {
+	opacity: 0;
+	transition: all 250ms ease-out;
+}
+
+#login_form.htmx-swapping {
+	opacity: 100 !important;
+}
+
+
+#change_replays_directory_modal.htmx-swapping #modal_root {
+	opacity: 0;
+	scale:95%;
+	transition: all 250ms ease-out;
+}
+
+
+.tippy-box[data-theme~='accent'] {
+	background-color: hsl(var(--af));
+	color: white;
+	font-weight: bold;
+	max-width: 500px;
+}
+
+.tippy-box[data-theme~='accent'][data-placement^='top']>.tippy-arrow::before {
+	border-top-color: hsl(var(--af));
+}
+
+.tippy-box[data-theme~='accent'][data-placement^='bottom']>.tippy-arrow::before {
+	border-bottom-color: hsl(var(--af));
+}
+
+.tippy-box[data-theme~='accent'][data-placement^='left']>.tippy-arrow::before {
+	border-left-color: hsl(var(--af));
+}
+
+.tippy-box[data-theme~='accent'][data-placement^='right']>.tippy-arrow::before {
+	border-right-color: hsl(var(--af));
+}

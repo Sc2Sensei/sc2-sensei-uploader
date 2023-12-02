@@ -1,0 +1,36 @@
+.speedometer {
+	position: relative;
+	bottom:0;
+}
+
+.bars, .knob {
+  position: absolute;
+  bottom: 0;
+  transform-origin: bottom;
+}
+
+.bars svg {
+  transform-origin: bottom;
+  width: 100%;
+}
+
+.knob {
+  left: 40%;
+  width: 54%;
+  bottom: -4px;
+  position: absolute;
+}
+
+.knob svg {
+  transform-origin: 18% 50%;
+  transition: transform 1s ease;
+}
+
+.knob[style*='--rotate-degree'] svg {
+  transform: rotate(calc(var(--rotate-degree) * 1deg));
+}
+
+.bar {
+  opacity: var(--bar-opacity, 0);
+  transition: opacity 1s ease;
+}

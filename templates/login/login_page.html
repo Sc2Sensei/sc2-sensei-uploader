@@ -1,0 +1,19 @@
+{% include 'header.html' %}
+
+<body class="overflow-y-hidden h-screen">
+
+	<div class="p-3 flex flex-col ">
+		<div class="flex flex-col items-center">
+			<img class="h-14 w-14" src="{{ url_for('static',filename='/icons/sc2_sensei_logo_v6.1.png') }}"
+							alt="Sc2SenseiLogo" draggable="false">
+			<h1 class="mt-1 font-bold text-xl text-accent">Sign In</h1>
+		</div>
+
+		{% include 'login/fragments/login_form.html' %}
+
+	</div>
+
+	
+	{% include 'footer.html' %}
+	
+</body>

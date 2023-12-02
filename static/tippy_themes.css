@@ -1,0 +1,145 @@
+
+.tippy-box[data-theme~='error'] {
+
+	background-color: #9b4a41;
+	color: #eeeeee;
+	font-size: medium;
+	font-weight: 600;
+	line-height: 1.3em;
+}
+
+.tippy-box[data-theme~='error'][data-placement^='bottom']>.tippy-arrow::before {
+	border-bottom-color: #9b4a41;
+}
+
+.tippy-box[data-theme~='error'][data-placement^='left']>.tippy-arrow::before {
+	border-left-color: #9b4a41;
+}
+
+.tippy-box[data-theme~='error'][data-placement^='top']>.tippy-arrow::before {
+	border-top-color: #9b4a41;
+}
+
+.tippy-box[data-theme~='error'][data-placement^='right']>.tippy-arrow::before {
+	border-right-color: #9b4a41;
+}
+
+
+.tippy-box[data-theme~='warning'] {
+
+	background-color: #a17c23;
+	color: #eeeeee;
+	font-size: medium;
+	font-weight: 600;
+	line-height: 1.3em;
+}
+
+.tippy-box[data-theme~='warning'][data-placement^='bottom']>.tippy-arrow::before {
+	border-bottom-color: #a17c23;
+}
+
+.tippy-box[data-theme~='warning'][data-placement^='left']>.tippy-arrow::before {
+	border-left-color: #a17c23;
+}
+
+.tippy-box[data-theme~='warning'][data-placement^='top']>.tippy-arrow::before {
+	border-top-color: #a17c23;
+}
+
+.tippy-box[data-theme~='warning'][data-placement^='right']>.tippy-arrow::before {
+	border-right-color: #a17c23;
+}
+
+
+
+
+
+.tippy-box[data-theme~='orange'] {
+
+	background-color: #9c4726;
+	color: #eeeeee;
+	font-size: medium;
+	font-weight: 600;
+	line-height: 1.3em;
+}
+
+.tippy-box[data-theme~='orange'][data-placement^='bottom']>.tippy-arrow::before {
+	border-bottom-color: #9c4726;
+}
+
+.tippy-box[data-theme~='orange'][data-placement^='left']>.tippy-arrow::before {
+	border-left-color: #9c4726;
+}
+
+.tippy-box[data-theme~='orange'][data-placement^='top']>.tippy-arrow::before {
+	border-top-color: #9c4726;
+}
+
+.tippy-box[data-theme~='orange'][data-placement^='right']>.tippy-arrow::before {
+	border-right-color: #9c4726;
+}
+
+
+
+
+
+.tippy-box[data-theme~='upload-limit'] {
+	padding: 4px;
+	background-color: #333333;
+	color: wheat;
+	font-size: 11px;
+	/* background-color: #8d774f;
+	color: white; */
+	font-weight: 500;
+	font-size: medium;
+	line-height: 1.3em;
+	
+	
+	/* width: 950px;
+	max-width: 950px; */
+}
+
+.tippy-box[data-theme~='upload-limit'][data-placement^='bottom']>.tippy-arrow::before {
+	border-bottom-color: #333333;
+}
+
+.tippy-box[data-theme~='upload-limit'][data-placement^='left']>.tippy-arrow::before {
+	border-left-color: #333333;
+}
+
+.tippy-box[data-theme~='upload-limit'][data-placement^='top']>.tippy-arrow::before {
+	border-top-color: #333333;
+}
+
+.tippy-box[data-theme~='upload-limit'][data-placement^='right']>.tippy-arrow::before {
+	border-right-color: #333333;
+}
+
+
+
+
+.tippy-box[data-theme~='success'] {
+
+	background-color: #2d8d63;
+	color: #eeeeee;
+	font-size: medium;
+	font-weight: 600;
+	line-height: 1.3em;
+}
+
+.tippy-box[data-theme~='success'][data-placement^='bottom']>.tippy-arrow::before {
+	border-bottom-color: #2d8d63;
+}
+
+.tippy-box[data-theme~='success'][data-placement^='left']>.tippy-arrow::before {
+	border-left-color: #2d8d63;
+}
+
+.tippy-box[data-theme~='success'][data-placement^='top']>.tippy-arrow::before {
+	border-top-color: #2d8d63;
+}
+
+.tippy-box[data-theme~='success'][data-placement^='right']>.tippy-arrow::before {
+	border-right-color: #4ade9e;
+}
+

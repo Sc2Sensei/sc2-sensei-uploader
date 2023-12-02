@@ -1,0 +1,18 @@
+.logo-gradient-text{
+	--bg-size: 300%;
+	--color-one: hsl(39, 56%, 50%);
+	--color-two: hsl(185, 54%, 55%);
+	background: linear-gradient(
+				  60deg,
+				  var(--color-one),
+				  var(--color-two),
+				  var(--color-one),
+				  var(--color-two),
+				  var(--color-one)
+				) 0 0 / var(--bg-size) 200%;
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+  }
+
+  

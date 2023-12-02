@@ -1,0 +1,111 @@
+html,
+body {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.request-loader {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 74px;
+	width: 74px;
+	border-radius: 100%;
+	background: #12635c;
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.25);
+}
+
+.request-loader span {
+	/* position: relative;
+	font-size: 72px; */
+	/* top: 5px;
+	left: -5px; */
+}
+
+.request-loader::after {
+	opacity: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 50;
+	/* top: -8px;
+	left: -8px; */
+	right: 0;
+	bottom: 0;
+	content: "";
+	height: 100%;
+	width: 100%;
+	border: 9px solid #1fb2a6;
+	border-radius: 100%;
+	-webkit-animation-name: ripple;
+	animation-name: ripple;
+	-webkit-animation-duration: 3s;
+	animation-duration: 3s;
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+	animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+	z-index: -1;
+}
+
+.request-loader::before {
+	opacity: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 50;
+	/* top: -8px;
+	left: -8px; */
+	right: 0;
+	bottom: 0;
+	content: "";
+	height: 100%;
+	width: 100%;
+	border: 9px solid #1fb2a6;
+	border-radius: 100%;
+	-webkit-animation-name: ripple;
+	animation-name: ripple;
+	-webkit-animation-duration: 3s;
+	animation-duration: 3s;
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+	animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+	z-index: -1;
+}
+
+@-webkit-keyframes ripple {
+	from {
+		opacity: 1;
+		transform: scale3d(0.75, 0.75, 1);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale3d(1.55, 1.55, 1);
+	}
+}
+
+@keyframes ripple {
+	from {
+		opacity: 1;
+		transform: scale3d(0.75, 0.75, 1);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale3d(1.55, 1.55, 1);
+	}
+}

@@ -1,0 +1,12 @@
+﻿node_modules
+__pycache__
+replay_test
+.venv
+.env
+build
+dist
+temp
+first-melody-362112-c0f1a070f96e.json
+installer/_internal
+installer/sc2_sensei_uploader.exe
+installer/sc2sensei_automatic_uploader_installer.exe

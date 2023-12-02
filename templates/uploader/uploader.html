@@ -1,0 +1,136 @@
+{% import 'uploader/replay_log_entry.html' as replay_log_entry %}
+
+<!DOCTYPE html>
+<html>
+
+{% include 'header.html' %}
+
+<body class="overflow-y-hidden min-h-[52px]" hx-ext="morph, class-tools">
+	<div id="uploader_container" class="flex flex-col h-screen" x-data="{is_paused : false}">
+
+		<div class="flex items-center bg-gray-900 select-none text-gray-200">
+
+			{# Logo #}
+			<div class="p-1 flex flex-wrap justify-between pr-0">
+				<div class="flex p-0  ml-2 relative">
+					<img class="h-11 w-11" src="{{ url_for('static',filename='icons/sc2_sensei_logo_v6.1.png') }}"
+						alt="Sc2SenseiLogo" draggable="false">
+					<span id="logo_name"
+						class="self-center text-[1.3rem] font-semibold whitespace-nowrap  ml-2 logo-gradient-text">SC2
+						Sensei</span>
+					<div class="ml-1 p-1 align-bottom">
+
+					</div>
+				</div>
+			</div>
+
+			{# Pause Stop Btns #}
+			<div class="flex flex-grow space-x-2 place-content-center py-1">
+				
+				{% include 'uploader/fragments/watchdog_controls.html' %}
+
+			</div>
+
+			<div class="mr-6">
+				{% include 'uploader/fragments/upload_limiter.html' %}
+			</div>
+
+
+			<div x-data="{
+					show_dropdown: false,
+					toggle() {
+						this.show_dropdown = !this.show_dropdown;
+					},
+					close() {
+						this.show_dropdown = false;
+					}
+				}"
+				class="relative flex mr-2 select-none text-gray-200 place-content-end">
+				<!-- Settings Btn -->
+				<div @click="toggle" class="cursor-pointer p-1 bg-gray-800 rounded-xl flex justify-center w-[44px] border border-transparent
+					hover:bg-gray-700 hover:outline-1 hover:border-accent hover:text-accent 
+					">
+					<i x-show="show_dropdown == false" class="bi bi-gear-fill text-2xl transition-all duration-150 
+						active:text-gray-300"></i>
+					<i x-show="show_dropdown" class="bi bi-gear text-2xl text-accent transition-all duration-150 
+						active:text-gray-300"></i>
+				</div>
+
+				<!-- Menu  -->
+				<div x-show="show_dropdown" x-transition @click.outside="close" x-cloak class="absolute -right-2 mt-12 text-left whitespace-nowrap
+					border border-gray-600 rounded-xl bg-gray-800 ">
+					<ul class="p-[7px] relative z-50
+					space-y-1 ">
+						<li @click="" class="flex rounded-lg align-top cursor-pointer
+							hover:bg-gray-700 hover:text-accent
+							active:bg-accent active:text-white">
+							<a class="p-1 px-3 w-full h-full" @click="close()"
+								hx-get="/open_change_replays_directory_modal"
+								hx-trigger="click"
+								hx-target="#uploader_container"
+								hx-swap="beforeend">
+								Set Replays Directory
+							</a>
+						</li>
+						<div class="w-full bg-gray-700 h-[2px] !mt-2"></div>
+
+						<li class="flex p-1 items-center hover:bg-gray-700 hover:text-accent cursor-pointer mt-[2px]">
+							<input type="checkbox" id="start_with_windows" name="start_with_windows"
+								hx-get="/set_start_with_windows"
+								hx-swap="none"
+								hx-include="#start_with_windows"
+								class="toggle toggle-xs toggle-success mt-[2px] -outline-offset-1
+								hover:outline-gray-300 hover:outline hover:outline-1 
+								transition-all duration-250" 
+								{% if None | start_with_windows %} checked {% endif %}
+								 />
+							<label for="start_with_windows" 
+								class="ml-[6px] mr-1 cursor-pointer"> 
+								Start with Windows </label>
+						</li>
+
+						<div class="w-full bg-gray-700 h-[2px] !mt-2"></div>
+						<li class="flex rounded-lg align-middle cursor-pointer
+							hover:bg-gray-700 hover:text-[#de6659]
+							active:bg-[#c45546] active:text-white">
+							<a hx-get="/logout"
+								class="p-1 px-3 w-full h-full">
+								Logout
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		{# Replays Entries #}
+		
+		<div id="replays_entries" class="overflow-y-auto flex flex-auto bg-black/95 w-full text-gray-300 p-2 pt-2 pb-3 select-none"
+		hx-ext="ws,debug" ws-connect="/update_replays_entries" hx-swap="morph">
+
+			<div class="flex-auto flex flex-col rounded-l-lg opacity-0 transition-all duration-500"
+				classes="remove opacity-0">
+
+				<div class="flex w-full space-x-3 p-1 
+					items-center uppercase text-[0.80rem] font-bold
+					border border-gray-400/50 rounded-t-lg">
+					<i class="bi bi-check text-lg text-transparent"></i>
+					<p class="pl-4">Replay Name</p>
+					<p class="flex-auto text-center">Players</p>
+					<p class=" pr-8 text-end">Creation Date</p>
+				</div>
+
+				{% include 'uploader/fragments/replay_entries.html' %}
+				
+			</div>
+			
+			<div id="update_speedmeter_value"></div>
+		</div>
+		
+		{% include 'footer.html' %}
+	</div>
+
+</body>
+
+</html>

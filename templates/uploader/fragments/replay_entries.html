@@ -1,0 +1,45 @@
+{% import 'uploader/replay_log_entry.html' as replay_log_entry %}
+
+{% if replay_logs | length > 0 %}
+	<div class="overflow-y-scroll flex flex-col rounded-b-lg 
+		border border-gray-300/50
+		transition-all duration-500"
+		id="replay_entries_container">
+
+		{% for c_replay in replay_logs %}
+			{{ replay_log_entry.new(c_replay) }}
+		{% endfor %}
+
+	</div>
+{% else %}	
+	<div class="p-2 rounded-b-lg  border border-gray-600 bg-gray-700 text-center" id="replay_entries_container">
+		<p class="font-bold ">
+			No Uploaded Replays
+		</p>
+		{% if (None | replays_dir_is_set) == False %}
+
+		<div class="mt-2 text-warning">
+			<div class="flex justify-center items-center">
+				<i class="bi bi-exclamation-triangle mr-1"></i>
+				<p>Replays directory is unset:</p>
+				<a 
+				hx-get="/open_change_replays_directory_modal" 
+				hx-target="#uploader_container"
+				hx-swap="beforeend"
+				hx-trigger="click"
+				class="ml-2 mt-[2px] px-2 pb-[1px] text-sm border border-warning
+					 rounded-lg bg-gray-600
+					cursor-pointer select-none
+					text-warning
+					hover:text-accent hover:border-accent ">
+				Click here to set
+			</a>
+			</div>
+			
+
+
+		</div>
+		{% endif %}
+		
+	</div>
+{% endif %}

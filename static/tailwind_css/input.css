@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+	*:focus-visible{
+		outline: none;
+	}
+	*:focus{
+		outline: none;
+	}
+
+	.login-form-input {
+		@apply text-center font-semibold h-10 first-of-type:rounded-t-xl relative block w-full appearance-none  px-3 py-2 text-gray-300 placeholder-gray-500 bg-zinc-800 border border-gray-700  transition-all duration-150 
+	}
+
+	.login-form-input:focus {
+		@apply border-accent-focus/60
+	}
+
+	.login-form-input:hover {
+		@apply border-accent/90
+	}
+
+	
+	.auth-sizing {
+		@apply w-full rounded-b-xl py-[7px] px-4 
+	}
+
+	.auth-submit { 
+		@apply relative z-50 flex 
+		font-medium justify-center
+		border border-gray-700 bg-accent-focus  text-white 
+		transition-all duration-300
+	}
+
+	.auth-submit:disabled { 
+		@apply opacity-60 cursor-not-allowed text-gray-300 duration-150
+	}
+
+	.auth-submit:not(:disabled):hover { 
+		@apply bg-accent text-white border-gray-300
+	}
+
+	.auth-submit:focus { 
+		@apply outline-none ring-2 ring-[#1fb2a6] ring-offset-2 
+	}
+}
